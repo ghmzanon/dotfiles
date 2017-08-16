@@ -57,7 +57,7 @@ bindsym $mod+Shift+v split v
 bindsym $mod+b border toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+F11 fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -68,7 +68,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+f focus mode_toggle
+# bindsym $mod+f focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -176,4 +176,7 @@ bar {
    position top
 }
 
+# autostart
+exec --no-startup-id setxkbmap -model abnt2 -layout br -variant abnt2
 exec --no-startup-id feh --randomize --bg-fill /usr/share/spotlight/*
+exec --no-startup-id compton -f -D 3
