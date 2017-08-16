@@ -20,7 +20,7 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
-" Plugins configurations ##############################################
+" Plugins config #######################################################
 
 " base16 colors
 if filereadable(expand("~/.vimrc_background"))
@@ -28,40 +28,83 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-" Status bar ##########################################################
-
-" enable status bar
-set laststatus=2
-" path of the file
-set statusline=%F\
-" help file flag
-set statusline+=%h           
-set statusline+=%m           "modified flag
-set statusline+=%r           "read only flag
-set statusline+=\ %y         "filetype
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}] "file encoding
-set statusline+=[%{&ff}]     "file format
-set statusline+=%=           "left/right separator
-set statusline+=%c,          "cursor column
-set statusline+=%l/%L        "cursor line/total lines
-set statusline+=\ %P         "percent through file
-
-" #####################################################################
+" Main config ##########################################################
 
 " enable syntax highlight
 syntax on
-set colorcolumn=72
-set cursorline
-set ruler
-set number
-set relativenumber
+
+" enable statusbar
+set laststatus=2
+
+" enable autocomplete menu
 set wildmenu
+
+" enable mouse support
 set mouse=a
+
+" enable specified column highlight
+set colorcolumn=72
+" enable current line highlight
+set cursorline
+" enable line numbers
+set number
+" enable line numbers relative to current line
+set relativenumber
+
+" highlight matched search string
+set hlsearch
+" disable search wrap around
+set nowrapscan
+" move the cursor to the matched string while typing the search 
+set incsearch
+" case insensitive search
+" set ignorecase
+
+" enable autoindentation
+set autoindent
+" enable tab to spaces conversion
+set expandtab
+" set indentation width
+set shiftwidth=3
+" set tab width
+set softtabstop=3
+
+" define white space caracters
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:•
+
+" Status bar ##########################################################
+
+" path of the file
+set statusline=%F\
+" help file flag
+set statusline+=%h
+" modified flag
+set statusline+=%m
+" read only flag
+set statusline+=%r
+" filetype
+set statusline+=\ %y
+" file encoding
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}]
+" file format
+set statusline+=[%{&ff}]
+" left/right separator
+set statusline+=%=
+" cursor column
+set statusline+=%c,
+" cursor line/total lines
+set statusline+=%l/%L
+" percent through file
+set statusline+=\ %P
 
 " Functions ###########################################################
 
 function! ToggleNumber()
     set rnu!
+endfunction
+
+function! ToggleWhiteSpaces()
+    set list!
 endfunction
 
 function! ToggleColorColumn()
@@ -77,3 +120,4 @@ endfunction
 noremap <silent><F2> :NERDTreeToggle<CR>
 noremap <silent><F3> :call ToggleNumber()<CR>
 noremap <silent><F4> :call ToggleColorColumn()<CR>
+noremap <silent><F5> :call ToggleWhiteSpaces()<CR>
