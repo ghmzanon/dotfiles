@@ -64,6 +64,8 @@ filetype plugin indent on    " required
    set ffs=unix,dos,mac
    " avoid redraw while executing macros
    set lazyredraw
+   " enable auto read when a file is changed from the outside
+   set autoread
 
    """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
    " File backups
@@ -206,3 +208,5 @@ filetype plugin indent on    " required
    map <C-j> <C-W>j
    map <C-k> <C-W>k
    map <C-l> <C-W>l
+    " force writing files with root privileges
+   command W w !sudo tee % > /dev/null
