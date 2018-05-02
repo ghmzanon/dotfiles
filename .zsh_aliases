@@ -1,0 +1,45 @@
+###############################################################################
+# Pacman aliases
+###############################################################################
+
+# Update repositories
+alias pacu='sudo pacman -Syu'
+
+# Clean cache
+alias pacc='sudo pacman -Sc'
+
+# Optimize pacman
+alias pacopt='sudo pacman-optimize'
+
+# Install package
+alias paci='sudo pacman -S'
+
+# Remove package and dependencies
+alias pacr='sudo pacman -Rs'
+
+# Search for a package
+alias pacs='pacman -Ss'
+
+# Display package information
+alias pacinfo='pacman -Si'
+
+# List all explicitly installed packages
+alias pacls='pacman -Qe'
+
+# List all manually installed packages
+alias paclm='pacman -Qm'
+
+# List all native installed packages
+alias pacln='pacman -Qn'
+
+# List files installed by a package
+alias paclf='pacman -Ql'
+
+# List installed packages by regex
+alias pacli='pacman -Qs'
+
+# List orphan packages
+alias paclo='pacman -Qtd'
+
+# Remove orphan packages
+alias pacro='sudo pacman -Rns $(pacman -Qtdq)'
