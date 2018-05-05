@@ -239,6 +239,15 @@ bindsym $mod+m exec rofi -show window
 # keyboard volume control
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
+bindsym XF86AudioMute        exec amixer -q set Master toggle
+
+# keyboard brightness control
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# touchpad toggle
+bindsym XF86TouchpadOn  exec xinput --enable  13
+bindsym XF86TouchpadOff exec xinput --disable 13
 
 # print screen
 bindsym Print exec xfce4-screenshooter
@@ -250,9 +259,19 @@ bindsym Print exec xfce4-screenshooter
 # Autostart
 ###############################################################################
 
-exec --no-startup-id setxkbmap br abnt2 -option caps:swapescape
-exec --no-startup-id compton -f -D 5
+# PC
+# exec --no-startup-id setxkbmap br abnt2 -option caps:swapescape
+
+# Notebook
+exec --no-startup-id xrandr --output eDP1 --mode 1600x900
+exec --no-startup-id setxkbmap -layout us -variant intl -option caps:swapescape
+# disable touchscreen
+exec --no-startup-id xinput --disable 12
+
+
+# Both
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id redshift
+exec --no-startup-id compton -f -D 5
+exec --no-startup-id redshift  #-gtk -l -23.7:-46.55
 
 ###############################################################################
