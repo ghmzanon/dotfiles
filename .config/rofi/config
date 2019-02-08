@@ -1,3 +1,2 @@
-rofi.theme: /usr/share/rofi/themes/Arc-Dark.rasi
 rofi.font: Ubuntu Mono 15
 rofi.lines: 10

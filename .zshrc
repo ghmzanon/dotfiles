@@ -100,9 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # Load aliases
 source ~/.zsh_aliases
 
-# Enable syntax-highlighting plugin
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Enable base-16 colors
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
