@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Keyboard
+Comment=Activate keyboard backlight
+Exec=xset led 3
+#Icon=
+Terminal=false
+#Categories=
