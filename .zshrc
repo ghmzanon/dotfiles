@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -33,7 +33,7 @@ ZSH_THEME="robbyrussell"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -64,14 +64,11 @@ ZSH_THEME="robbyrussell"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-    zsh-syntax-highlighting
-)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,8 +102,20 @@ source $ZSH/oh-my-zsh.sh
 # Custom configuration
 ################################################################################
 
-# Add ~/.bin folder to path variable
-export PATH=$HOME/.bin:$PATH
-
 # Source aliases from ~/.zsh_aliases file
 # source ~/.zsh_aliases
+
+# Windows Subsystem for Linux
+if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
+    export LIBGL_ALWAYS_INDIRECT=1
+    export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d ' ' -f2)
+    export DISPLAY=$WSL_HOST:0
+    export PULSE_SERVER=tcp:$WSL_HOST
+
+    PSCRIPT_PATH='C:\Users\ghmzanon\Documents\WindowsPowerShell\'
+    powershell.exe -executionpolicy bypass -File $PSCRIPT_PATH'StartX.ps1'
+    cleanup() {
+        powershell.exe -executionpolicy bypass -File $PSCRIPT_PATH'FinishX.ps1'
+    }
+    trap cleanup EXIT
+fi
