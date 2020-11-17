@@ -11,9 +11,11 @@ endif
 call plug#begin('~/.vim/plugged')
    Plug 'preservim/nerdcommenter'
    Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+   Plug 'chriskempson/base16-vim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File I/O
@@ -47,7 +49,10 @@ command W w !sudo tee % > /dev/null
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Colorscheme
-colorscheme elflord
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Enable syntax highlighting
 syntax on
@@ -182,6 +187,7 @@ set statusline+=\ %P
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Helper functions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,6 +219,7 @@ endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommand
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,6 +234,7 @@ au BufReadPost * call RestoreCursor()
 au BufWritePre * call RemoveTrailingSpaces()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -243,6 +251,9 @@ map <silent><F4> :set relativenumber!<CR>
 
 " Toggle color column
 map <silent><F5> :call ToggleColorColumn()<CR>
+
+" Toggle spell check
+map <silent><F7> :set spell! spelllang=pt-br<CR>
 
 " Ignore common typos
 command WQ wq
@@ -264,5 +275,4 @@ noremap <right> <nop>
 " (Un)Folding with spacebar
 nnoremap <Space> za
 vnoremap <Space> za
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -102,20 +102,11 @@ source $ZSH/oh-my-zsh.sh
 # Custom configuration
 ################################################################################
 
+# base16-shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 # Source aliases from ~/.zsh_aliases file
-# source ~/.zsh_aliases
-
-# Windows Subsystem for Linux
-if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
-    export LIBGL_ALWAYS_INDIRECT=1
-    export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d ' ' -f2)
-    export DISPLAY=$WSL_HOST:0
-    export PULSE_SERVER=tcp:$WSL_HOST
-
-    PSCRIPT_PATH='C:\Users\ghmzanon\Documents\WindowsPowerShell\'
-    powershell.exe -executionpolicy bypass -File $PSCRIPT_PATH'StartX.ps1'
-    cleanup() {
-        powershell.exe -executionpolicy bypass -File $PSCRIPT_PATH'FinishX.ps1'
-    }
-    trap cleanup EXIT
-fi
+source ~/.zsh_aliases
