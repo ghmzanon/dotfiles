@@ -2,8 +2,17 @@
 " Source files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Plugins and related configurations
 source $HOME/.vim/config/plugins.vim
+
+" General settings
 source $HOME/.vim/config/general.vim
+
+" Autocommands
 source $HOME/.vim/config/autocmd.vim
+
+" Key mappings
 source $HOME/.vim/config/mappings.vim
+
+" Status line
 source $HOME/.vim/config/status.vim
