@@ -1,0 +1,8 @@
+alias la='ls -la'
+alias ll='ls -l'
+
+alias g='git'
+alias gst='git status'
+alias glg='git log'
+alias gco='git checkout'
+alias gfp='git fetch --prune'

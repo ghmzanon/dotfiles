@@ -1,3 +1,5 @@
+[init]
+	defaultBranch = main
 [user]
 	name = Gustavo H. M. Zanon
 	email = ghmzanon@gmail.com
