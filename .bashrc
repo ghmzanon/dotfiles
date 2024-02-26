@@ -115,8 +115,11 @@ fi
 # enable flow control to make ctrl+s work in forward search
 stty -ixon
 
+# export nvim location to PATH variable
+export PATH="$PATH:/opt/nvim/"
+
 # use nvim as default editor
-export EDITOR=/usr/bin/nvim
+export EDITOR=/opt/nvim/nvim
 
 # PS1
 source ~/.ps1
