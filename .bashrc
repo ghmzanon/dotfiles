@@ -116,7 +116,7 @@ fi
 stty -ixon
 
 # export nvim location to PATH variable
-export PATH="$PATH:/opt/nvim/"
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # use nvim as default editor
 export EDITOR=/opt/nvim/nvim
