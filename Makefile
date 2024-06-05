@@ -5,22 +5,22 @@ BACKUP=~/.backup
 link:
 	mkdir -p $(BACKUP)
 	[ ! -f ~/.bashrc ] || mv ~/.bashrc $(BACKUP) 
-	ln -s $(DOTFILES)/.bashrc ~/.bashrc
+	ln -s $(DOTFILES)/bash/bashrc ~/.bashrc
 	[ ! -d ~/.bashrc.d ] || mv ~/.bashrc.d $(BACKUP) 
-	ln -s $(DOTFILES)/.bashrc.d ~/.bashrc.d
-	[ ! -f ~/.gitconfig ] || mv ~/.gitconfig $(BACKUP) 
-	ln -s $(DOTFILES)/.gitconfig ~/.gitconfig
+	ln -s $(DOTFILES)/bash/bashrc.d ~/.bashrc.d
 	[ ! -f ~/.inputrc ] || mv ~/.inputrc $(BACKUP)
-	ln -s $(DOTFILES)/.inputrc ~/.inputrc
+	ln -s $(DOTFILES)/bash/inputrc ~/.inputrc
+	[ ! -f ~/.gitconfig ] || mv ~/.gitconfig $(BACKUP) 
+	ln -s $(DOTFILES)/git/gitconfig ~/.gitconfig
 	[ ! -f ~/.tmux.conf ] || mv ~/.tmux.conf $(BACKUP)
-	ln -s $(DOTFILES)/.tmux.conf ~/.tmux.conf
+	ln -s $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
 	source ~/.bashrc
 
 unlink:
 	[ ! -L ~/.bashrc ] || unlink ~/.bashrc
 	[ ! -L ~/.bashrc.d ] || unlink ~/.bashrc.d
-	[ ! -L ~/.gitconfig ] || unlink ~/.gitconfig
 	[ ! -L ~/.inputrc ] || unlink ~/.inputrc
+	[ ! -L ~/.gitconfig ] || unlink ~/.gitconfig
 	[ ! -L ~/.tmux.conf ] || unlink ~/.tmux.conf
 	mv -f $(BACKUP)/.* ~/ 2> /dev/null; true
 	source ~/.bashrc
