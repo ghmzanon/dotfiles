@@ -1,7 +1,9 @@
 SHELL := /bin/bash
 DOTFILES=~/.dotfiles
-BACKUP=~/.backup
+HOME_BACKUP=~/.backup
 CONFIG=~/.config
+CONFIG_BACKUP=$(CONFIG)/.backup
+
 
 link:
 	mkdir -p $(BACKUP)
@@ -15,6 +17,8 @@ link:
 	ln -s $(DOTFILES)/git/gitconfig ~/.gitconfig
 	[ ! -d $(CONFIG)/tmux ] || mv $(CONFIG)/tmux $(BACKUP)
 	ln -s $(DOTFILES)/tmux $(CONFIG)/tmux
+	[ ! -d $(CONFIG)/alacritty] || mv $(CONFIG)/alacritty $(CONFIG_BACKUP)
+	ln -s $(DOTFILES)/alacritty $(CONFIG)/alacritty
 	source ~/.bashrc
 
 unlink:
@@ -23,5 +27,7 @@ unlink:
 	[ ! -L ~/.inputrc ] || unlink ~/.inputrc
 	[ ! -L ~/.gitconfig ] || unlink ~/.gitconfig
 	[ ! -L $(CONFIG)/tmux ] || unlink $(CONFIG)/tmux
-	mv -f $(BACKUP)/.* ~/ 2> /dev/null; true
+	[ ! -L $(CONFIG)/alacritty] || unlink $(CONFIG)/alacritty
+	mv -f $(HOME_BACKUP)/.* ~/ 2> /dev/null; true
+	mv -f $(CONFIG_BACKUP)/.* $(CONFIG) 2> /dev/null; true
 	source ~/.bashrc
