@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 DOTFILES=~/.dotfiles
 BACKUP=~/.backup
+CONFIG=~/.config
 
 link:
 	mkdir -p $(BACKUP)
@@ -12,8 +13,8 @@ link:
 	ln -s $(DOTFILES)/bash/inputrc ~/.inputrc
 	[ ! -f ~/.gitconfig ] || mv ~/.gitconfig $(BACKUP) 
 	ln -s $(DOTFILES)/git/gitconfig ~/.gitconfig
-	[ ! -f ~/.tmux.conf ] || mv ~/.tmux.conf $(BACKUP)
-	ln -s $(DOTFILES)/tmux/tmux.conf ~/.tmux.conf
+	[ ! -d $(CONFIG)/tmux ] || mv $(CONFIG)/tmux $(BACKUP)
+	ln -s $(DOTFILES)/tmux $(CONFIG)/tmux
 	source ~/.bashrc
 
 unlink:
@@ -21,6 +22,6 @@ unlink:
 	[ ! -L ~/.bashrc.d ] || unlink ~/.bashrc.d
 	[ ! -L ~/.inputrc ] || unlink ~/.inputrc
 	[ ! -L ~/.gitconfig ] || unlink ~/.gitconfig
-	[ ! -L ~/.tmux.conf ] || unlink ~/.tmux.conf
+	[ ! -L $(CONFIG)/tmux ] || unlink $(CONFIG)/tmux
 	mv -f $(BACKUP)/.* ~/ 2> /dev/null; true
 	source ~/.bashrc
