@@ -1,4 +1,4 @@
-import = [ "~/.config/alacritty/themes/gnome-terminal.toml" ]
+import = [ "~/.config/alacritty/themes/base16-default-dark.toml" ]
 
 shell = { program = "/bin/bash", args = ["-l", "-c", "tmux attach || tmux"] }
 
@@ -11,7 +11,7 @@ padding = { x = 5, y = 5 }
 opacity = 1.0
 
 [font]
-normal = { family = "Source Code Pro" }
+normal = { family = "SauceCodePro Nerd Font" }
 size = 17
 
 [mouse]
