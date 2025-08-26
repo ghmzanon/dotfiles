@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install caffeine extension
+sudo dnf install -y gnome-shell-extension-caffeine
+
 # center new windows in the middle of the screen
 gsettings set org.gnome.mutter center-new-windows true
 

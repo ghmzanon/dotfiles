@@ -36,4 +36,3 @@ if [ -d ~/.zshrc.d ]; then
 fi
 unset rc
 
-export PATH="$PATH:/opt/nvim-linux64/bin"
