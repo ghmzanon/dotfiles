@@ -36,3 +36,5 @@ if [ -d ~/.zshrc.d ]; then
 fi
 unset rc
 
+export DOTFILES=$HOME/.dotfiles
+
