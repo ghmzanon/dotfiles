@@ -3,6 +3,9 @@
 # install caffeine extension
 sudo dnf install -y gnome-shell-extension-caffeine
 
+# disable logout/reboot/shutdown confirmation pop-up
+gsettings set org.gnome.SessionManager logout-prompt false
+
 # center new windows in the middle of the screen
 gsettings set org.gnome.mutter center-new-windows true
 
