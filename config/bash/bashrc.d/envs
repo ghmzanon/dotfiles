@@ -1,0 +1,12 @@
+# editor used by CLI for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+export SUDO_EDITOR="$EDITOR"
+export BAT_THEME=ansi
+
+# dotfiles path
+export DOTFILES=$HOME/.dotfiles
+

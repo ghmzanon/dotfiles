@@ -1,0 +1,15 @@
+# File system
+alias ls='ls --color'
+alias la='ls -la'
+
+# Tools
+alias tmux='tmux -2'
+
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Git
+alias gst='git status'
+alias glg='git log'

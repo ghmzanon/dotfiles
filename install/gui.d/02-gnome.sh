@@ -24,6 +24,9 @@ gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 
 # theming
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.background picture-uri $DOTFILES/wallpapers/1377084.png
+gsettings set org.gnome.desktop.background picture-uri-dark $DOTFILES/wallpapers/1377084.png
+gsettings set org.gnome.desktop.background picture-options 'zoom'
 
 # turn-off animations
 gsettings set org.gnome.desktop.interface enable-animations false
@@ -41,6 +44,7 @@ gsettings set org.gnome.shell enabled-extensions "[
 # gsettings set org.gnome.desktop.wm.keybindings toggle-above "[]"
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>Return']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>F10']"
+gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 
 # privacy
 gsettings set org.gnome.desktop.privacy hide-identity true

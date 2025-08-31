@@ -6,12 +6,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # install zsh-syntax-highlighting extension via oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-# remove old bash resources
-rm -rf $HOME/.bash*
-
-# remove fresh install oh-my-zsh resources
+# remove old zsh resources
+unlink $HOME/.zshrc
+unlink $HOME/.zshrc.d
 rm -rf $HOME/.zsh*
 
 # link config files
 ln -sfn $DOTFILES/config/zsh/zshrc $HOME/.zshrc
 ln -sfn $DOTFILES/config/zsh/zshrc.d $HOME/.zshrc.d
+
