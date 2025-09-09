@@ -12,7 +12,7 @@ gsettings set org.gnome.mutter center-new-windows true
 # reveal week numbers in the Gnome calendar
 gsettings set org.gnome.desktop.calendar show-weekdate true
 
-# turn off ambient sensors for setting screen brightness (they rarely work well!)
+# turn off ambient sensors for setting screen brightness
 gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
 
 # alt+F4 is very cumbersome
@@ -23,10 +23,13 @@ gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 
 # theming
+WALLPAPER=$DOTFILES'/wallpapers/background.png'
+ACCENT_COLOR='blue' # blue, teal, green, yellow, orange, red, pink, purple, slate
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.background picture-uri $DOTFILES/wallpapers/1377084.png
-gsettings set org.gnome.desktop.background picture-uri-dark $DOTFILES/wallpapers/1377084.png
+gsettings set org.gnome.desktop.background picture-uri $WALLPAPER
+gsettings set org.gnome.desktop.background picture-uri-dark $WALLPAPER
 gsettings set org.gnome.desktop.background picture-options 'zoom'
+gsettings set org.gnome.desktop.interface accent-color $ACCENT_COLOR 2>/dev/null || true
 
 # turn-off animations
 gsettings set org.gnome.desktop.interface enable-animations false
@@ -38,9 +41,7 @@ gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.shell.window-switcher current-workspace-only true
 gsettings set org.gnome.shell.window-switcher app-icon-mode 'app-icon-only'
 gsettings set org.gnome.shell.keybindings toggle-overview "['<Super>Space']"
-gsettings set org.gnome.shell enabled-extensions "[
-	'caffeine@patapon.info'
-]"
+gsettings set org.gnome.shell enabled-extensions "[ 'caffeine@patapon.info' ]"
 # gsettings set org.gnome.desktop.wm.keybindings toggle-above "[]"
 gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Super>Return']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>F10']"
