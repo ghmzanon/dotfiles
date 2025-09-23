@@ -1,6 +1,9 @@
 #!/bin/bash
 
-sudo dnf install -y nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+sudo rm -rf nvim-linux-x86_64.tar.gz
 
 ln -sfn $DOTFILES/config/nvim $HOME/.config/nvim
 

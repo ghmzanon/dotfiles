@@ -36,5 +36,6 @@ if [ -d ~/.zshrc.d ]; then
 fi
 unset rc
 
+export PATH="$PATH:/opt/nvim-linux/bin:/opt/lua-language-server/bin"
 export DOTFILES=$HOME/.dotfiles
-
+. "$HOME/.cargo/env"
