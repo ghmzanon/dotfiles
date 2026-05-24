@@ -7,8 +7,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # remove old zsh resources
-unlink $HOME/.zshrc
-unlink $HOME/.zshrc.d
+rm -f $HOME/.zshrc
+rm -f $HOME/.zshrc.d
 rm -rf $HOME/.zsh*
 
 # link config files
