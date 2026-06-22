@@ -13,6 +13,8 @@ italic = { family = "CaskaydiaMono Nerd Font", style = "Italic" }
 size = 15
 
 [keyboard]
+# macOS: uncomment to use Option as Meta key for tmux bindings
+# option_as_alt = "OnlyLeft"
 bindings = [
 	{ key = "F11", action = "ToggleFullscreen" },
 ]

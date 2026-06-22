@@ -36,6 +36,8 @@ gsettings set org.gnome.desktop.interface enable-animations false
 
 # navigation
 gsettings set org.gnome.mutter overlay-key ''
+# swap left Alt and Super: outer key = Alt (Meta for tmux) to match Mac layout
+gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_alt_win']"
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 gsettings set org.gnome.shell.window-switcher current-workspace-only true
